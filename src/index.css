@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #A855F7;
+  --color-secondary: #22D3EE;
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --font-sans: Inter, sans-serif;
+}
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card: #ffffff;
+  --card-foreground: #0F172A;
+}
+
+.dark {
+  --background: #05010F;
+  --foreground: #F8FAFC;
+  --card: rgba(5, 1, 15, 0.5);
+  --card-foreground: #F8FAFC;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-md border transition-all duration-300;
+    border-color: #e2e8f0;
+  }
+
+  .dark .glass {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .glass:hover {
+    @apply border-primary/50;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+  }
+
+  .cyan-glow {
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+  }
+
+  .dark nav.shadow-lg {
+    box-shadow: 0 4px 20px -2px rgba(168, 85, 247, 0.2);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground transition-colors duration-300;
+  overflow-x: hidden;
+}
