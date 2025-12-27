@@ -49,7 +49,7 @@ const About = () => {
                         <h3 className="text-xl font-semibold text-foreground mb-6">Education</h3>
                         <div className="space-y-6">
                             <div>
-                                <div className="flex justify-between items-center mb-1">
+                                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-1 gap-1 sm:gap-0">
                                     <span className="text-foreground font-medium">B.E. Computer Science and Engineering</span>
                                     <span className="text-primary text-sm">2023 - 2026</span>
                                 </div>
@@ -57,7 +57,7 @@ const About = () => {
                             </div>
                             <div className="w-full h-px bg-foreground/10"></div>
                             <div>
-                                <div className="flex justify-between items-center mb-1">
+                                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-1 gap-1 sm:gap-0">
                                     <span className="text-foreground font-medium">Diploma in Agricultural Technology</span>
                                     <span className="text-primary text-sm">2020 - 2022</span>
                                 </div>
