@@ -1,9 +1,60 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Mail, MapPin, Linkedin, Github, Send } from "lucide-react";
+import { useState } from "react";
+import Alert from "../components/Alert";
 
 const Contact = () => {
+    const formId = "xqazjwbn";
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [alert, setAlert] = useState(null);
+
+    const showAlert = (message, type) => {
+        setAlert({ message, type });
+    };
+
+    const closeAlert = () => {
+        setAlert(null);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = {
+            name,
+            email,
+            message,
+            _subject: "Portfolio Inquiry",
+        };
+        try {
+            await fetch(`https://formspree.io/f/${formId}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+            setName("");
+            setEmail("");
+            setMessage("");
+            showAlert("Message sent successfully!", "success");
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            showAlert("Failed to send message. Please try again.", "error");
+        }
+    };
+
     return (
         <section id="contact" className="py-20 bg-background relative overflow-hidden">
+            <AnimatePresence>
+                {alert && (
+                    <Alert
+                        message={alert.message}
+                        type={alert.type}
+                        onClose={closeAlert}
+                    />
+                )}
+            </AnimatePresence>
             <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-6">
@@ -73,7 +124,7 @@ const Contact = () => {
                         viewport={{ once: true }}
                         className="glass p-8 rounded-2xl"
                     >
-                        <form action="https://formspree.io/f/xvgzgqlo" method="POST" className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-foreground/70 mb-2">Name</label>
                                 <input
@@ -83,6 +134,8 @@ const Contact = () => {
                                     required
                                     placeholder="John Doe"
                                     className="w-full px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-lg focus:outline-none focus:border-primary/50 text-foreground placeholder-foreground/30 transition-colors"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
                                 />
                             </div>
                             <div>
@@ -94,6 +147,8 @@ const Contact = () => {
                                     required
                                     placeholder="john@example.com"
                                     className="w-full px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-lg focus:outline-none focus:border-primary/50 text-foreground placeholder-foreground/30 transition-colors"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                             <div>
@@ -105,6 +160,8 @@ const Contact = () => {
                                     rows="4"
                                     placeholder="Tell me about your project..."
                                     className="w-full px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-lg focus:outline-none focus:border-primary/50 text-foreground placeholder-foreground/30 transition-colors resize-none"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
                                 ></textarea>
                             </div>
 
