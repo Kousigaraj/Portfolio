@@ -55,7 +55,7 @@ const Contact = () => {
                     />
                 )}
             </AnimatePresence>
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-6">
                 <motion.div
@@ -131,6 +131,7 @@ const Contact = () => {
                                     type="text"
                                     id="name"
                                     name="name"
+                                    autoComplete="name"
                                     required
                                     placeholder="John Doe"
                                     className="w-full px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-lg focus:outline-none focus:border-primary/50 text-foreground placeholder-foreground/30 transition-colors"
@@ -144,6 +145,7 @@ const Contact = () => {
                                     type="email"
                                     id="email"
                                     name="email"
+                                    autoComplete="email"
                                     required
                                     placeholder="john@example.com"
                                     className="w-full px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-lg focus:outline-none focus:border-primary/50 text-foreground placeholder-foreground/30 transition-colors"

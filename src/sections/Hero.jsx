@@ -9,8 +9,8 @@ const Hero = () => {
             className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden px-6"
         >
             {/* Background Glow */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl opacity-20 animate-pulse delay-1000"></div>
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-primary/20 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-secondary/20 rounded-full blur-3xl opacity-20 animate-pulse delay-1000"></div>
 
             <div className="max-w-4xl w-full text-center z-10 space-y-8">
                 <motion.div
