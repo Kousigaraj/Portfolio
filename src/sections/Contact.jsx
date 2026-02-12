@@ -133,7 +133,7 @@ const Contact = () => {
                                     name="name"
                                     autoComplete="name"
                                     required
-                                    placeholder="John Doe"
+                                    placeholder="Enter your name"
                                     className="w-full px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-lg focus:outline-none focus:border-primary/50 text-foreground placeholder-foreground/30 transition-colors"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
@@ -147,7 +147,7 @@ const Contact = () => {
                                     name="email"
                                     autoComplete="email"
                                     required
-                                    placeholder="john@example.com"
+                                    placeholder="Enter your email"
                                     className="w-full px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-lg focus:outline-none focus:border-primary/50 text-foreground placeholder-foreground/30 transition-colors"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -160,7 +160,7 @@ const Contact = () => {
                                     name="message"
                                     required
                                     rows="4"
-                                    placeholder="Tell me about your project..."
+                                    placeholder="Enter your message..."
                                     className="w-full px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-lg focus:outline-none focus:border-primary/50 text-foreground placeholder-foreground/30 transition-colors resize-none"
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
