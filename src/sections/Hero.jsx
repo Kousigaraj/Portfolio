@@ -47,7 +47,7 @@ const Hero = () => {
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <a
-                        href="/resume.pdf"
+                        href="/Kousigaraj_P_Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-8 py-3 border border-foreground/20 text-foreground font-medium rounded-full hover:border-primary/50 hover:bg-foreground/5 transition-all flex items-center gap-2"
